@@ -106,7 +106,13 @@ module.exports = {
         return res.redirect('/signup');
       }
 
-      await user.save();
+      const savedUser = await user.save();
+      req.logIn(savedUser, (err) => {
+        if (err) {
+          return next(err);
+        }
+        res.redirect('/inventory');
+      });
     } catch (err) {
       return next(err);
     }
