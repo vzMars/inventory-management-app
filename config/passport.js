@@ -21,7 +21,7 @@ module.exports = function (passport) {
             return done(null, user);
           }
 
-          return done(null, false, { msg: 'Invalid email or password.' });
+          return done(null, false, { msg: 'Invalid password.' });
         } catch (err) {
           return done(err);
         }

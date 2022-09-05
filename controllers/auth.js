@@ -4,7 +4,7 @@ const User = require('../models/User');
 
 module.exports = {
   getLogin: (req, res) => {
-    res.render('login');
+    res.render('login', { title: 'Login' });
   },
   postLogin: (req, res, next) => {
     const validationErrors = [];
@@ -56,7 +56,7 @@ module.exports = {
     });
   },
   getSignup: (req, res) => {
-    res.render('signup');
+    res.render('signup', { title: 'Signup' });
   },
   postSignup: async (req, res, next) => {
     const validationErrors = [];

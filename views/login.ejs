@@ -1,11 +1,17 @@
-<% if (locals.messages.errors) { %> <% messages.errors.forEach(element => { %>
-<div class="alert alert-danger"><%= element.msg %></div>
-<% }) %> <% } %> <% if (locals.messages.info) { %> <%
-messages.info.forEach(element => { %>
-<div class="alert alert-danger"><%= element.msg %></div>
-<% }) %> <% } %>
-<form action="/login" method="POST">
-  <input type="email" name="email" placeholder="Email" />
-  <input type="password" name="password" placeholder="Password" />
-  <button type="submit">Login</button>
-</form>
+<div class="inner-container form-container">
+  <h1>Login</h1>
+  <% if (locals.messages.errors) { %>
+  <div class="errors">
+    <% messages.errors.forEach(element => { %>
+    <div class="alert alert-danger"><%= element.msg %></div>
+    <% }) %>
+  </div>
+  <% } %>
+  <form action="/login" method="POST">
+    <label for="email">Email</label>
+    <input type="email" name="email" placeholder="Email" />
+    <label for="password">Password</label>
+    <input type="password" name="password" placeholder="Password" />
+    <button type="submit" class="btn">Login</button>
+  </form>
+</div>
