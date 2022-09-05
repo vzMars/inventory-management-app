@@ -5,6 +5,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const flash = require('express-flash');
 const morgan = require('morgan');
+const expressLayouts = require('express-ejs-layouts');
 const connectDB = require('./config/database');
 const mainRoutes = require('./routes/main');
 const inventoryRoutes = require('./routes/inventory');
@@ -20,6 +21,7 @@ connectDB();
 
 // EJS
 app.set('view engine', 'ejs');
+app.use(expressLayouts);
 
 // Static folder
 app.use(express.static('public'));
