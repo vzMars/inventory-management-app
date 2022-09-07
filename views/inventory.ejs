@@ -1,6 +1,6 @@
 <div class="container">
   <%- include('partials/_header') %>
-  <h1 class="greeting">Hello <%= user.userName %>!</h1>
+  <h1 class="greeting"><%= title %></h1>
   <a href="/logout" class="btn">Logout</a>
   <div class="video-games">
     <% videoGames.forEach(item => { %>

@@ -77,6 +77,10 @@ h1 {
   border: none;
 }
 
+.cancel-btn {
+  background-color: #f44336;
+}
+
 .header-link {
   color: #fca90b;
   text-decoration: none;
@@ -126,6 +130,10 @@ nav {
 .greeting,
 h2 {
   color: #fca90b;
+}
+
+.greeting {
+  text-align: center;
 }
 
 form p,

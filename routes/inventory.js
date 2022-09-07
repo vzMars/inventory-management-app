@@ -5,6 +5,8 @@ const { ensureAuth, ensureGuest } = require('../middleware/auth');
 
 router.get('/', ensureAuth, inventoryController.getInventory);
 router.get('/add', ensureAuth, inventoryController.addForm);
+router.get('/available', ensureAuth, inventoryController.getAvailable);
+router.get('/sold', ensureAuth, inventoryController.getSold);
 router.post('/add', ensureAuth, inventoryController.addItem);
 
 module.exports = router;
