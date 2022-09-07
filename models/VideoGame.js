@@ -9,15 +9,6 @@ const VideoGameSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  console: {
-    type: String,
-    required: true,
-  },
-  genre: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Genre',
-    required: true,
-  },
   price: {
     type: Number,
     required: true,
@@ -29,6 +20,10 @@ const VideoGameSchema = new mongoose.Schema({
     required: true,
   },
   imgURL: {
+    type: String,
+    required: true,
+  },
+  userId: {
     type: String,
     required: true,
   },
