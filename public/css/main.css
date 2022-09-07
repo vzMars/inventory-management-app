@@ -24,7 +24,7 @@ body,
 }
 
 .container {
-  max-width: 75rem;
+  max-width: 95rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -43,16 +43,26 @@ body,
   width: 90%;
 }
 
+.login-page {
+  padding: 6rem 2rem;
+}
+
 .form-container {
   justify-content: center;
+  max-width: 75rem;
 }
 
 .form-container img {
   width: 100%;
 }
 
-h1 {
+h1,
+p,
+h2 {
   margin: 0;
+}
+
+h1 {
   color: #141319;
 }
 
@@ -113,6 +123,7 @@ nav {
   justify-content: space-between;
 }
 
+.greeting,
 h2 {
   color: #fca90b;
 }
@@ -120,4 +131,32 @@ h2 {
 form p,
 .radio {
   align-self: flex-start;
+}
+
+.video-games {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding-bottom: 4rem;
+}
+
+.video-game {
+  background-color: #f3f8fa;
+  text-align: center;
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 30rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.video-game img {
+  width: 100%;
+}
+
+.status {
+  font-weight: bold;
+  cursor: pointer;
 }

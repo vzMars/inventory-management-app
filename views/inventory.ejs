@@ -1,5 +1,17 @@
 <div class="container">
   <%- include('partials/_header') %>
-  <h2>Hello, <%= user.userName %></h2>
+  <h1 class="greeting">Hello <%= user.userName %>!</h1>
   <a href="/logout" class="btn">Logout</a>
+  <div class="video-games">
+    <% videoGames.forEach(item => { %>
+    <div class="video-game" id="<%= item._id %>">
+      <h2><%= item.title %></h2>
+      <img src="<%= item.imgURL %>" alt="box-art" />
+      <p>$<%= item.price %></p>
+      <p class="status">
+        <%= item.status[0].toUpperCase() + item.status.slice(1) %>
+      </p>
+    </div>
+    <% }) %>
+  </div>
 </div>

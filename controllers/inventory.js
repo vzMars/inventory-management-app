@@ -2,12 +2,18 @@ const VideoGame = require('../models/VideoGame');
 
 module.exports = {
   getInventory: async (req, res) => {
-    res.render('inventory', {
-      user: req.user,
-      title: `${req.user.userName}'s Inventory`,
-    });
+    try {
+      const videoGames = await VideoGame.find({ userId: req.user._id });
+      res.render('inventory', {
+        user: req.user,
+        title: `${req.user.userName}'s Inventory`,
+        videoGames,
+      });
+    } catch (err) {
+      console.log(err);
+    }
   },
-  addForm: async (req, res) => {
+  addForm: (req, res) => {
     res.render('add', { title: 'Add Video Game' });
   },
   addItem: async (req, res) => {
