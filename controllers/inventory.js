@@ -21,10 +21,20 @@ module.exports = {
         videoGame,
         title: videoGame.title,
       });
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   },
   addForm: (req, res) => {
     res.render('add', { title: 'Add Video Game' });
+  },
+  updateForm: async (req, res) => {
+    try {
+      const videoGame = await VideoGame.findById({ _id: req.params.id });
+      res.render('edit', { title: 'Update Video Game', videoGame });
+    } catch (err) {
+      console.log(err);
+    }
   },
   getAvailable: async (req, res) => {
     try {
@@ -72,6 +82,23 @@ module.exports = {
       res.render('/inventory/add', {
         errorMessage: 'Error creating Video Game',
       });
+    }
+  },
+  updateItem: async (req, res) => {
+    console.log(req.params.id);
+    try {
+      let videoGame = VideoGame.findById(req.params.id);
+      videoGame = await VideoGame.findOneAndUpdate(
+        { _id: req.params.id },
+        req.body,
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+      res.redirect('/inventory');
+    } catch (err) {
+      console.log(err);
     }
   },
   updateStatus: async (req, res) => {

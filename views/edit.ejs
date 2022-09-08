@@ -1,0 +1,54 @@
+<div class="container form-container">
+  <div class="inner-container">
+    <h1><%= title %></h1>
+    <% if (locals.errorMessage) { %>
+    <div class="alert alert-danger"><%= locals.errorMessage %></div>
+    <% } %>
+    <form action="/inventory/<%= locals.videoGame._id %>" method="POST">
+      <input type="hidden" name="_method" value="PUT" />
+      <label for="title">Title</label>
+      <input
+        type="text"
+        name="title"
+        required
+        value="<%= locals.videoGame.title %>"
+      />
+      <label for="description">Description</label>
+      <textarea name="description" required>
+<%= locals.videoGame.description %></textarea
+      >
+      <label for="price">Price</label>
+      <input
+        type="number"
+        name="price"
+        step="0.01"
+        min="1"
+        max="10000"
+        required
+        value="<%= locals.videoGame.price %>"
+      />
+      <p>Status</p>
+      <div class="radio">
+        <input type="radio" name="status" value="available" <%=
+        locals.videoGame.status === 'available' ? 'checked' : '' %> />
+        <label for="available">Available</label>
+      </div>
+      <div class="radio">
+        <input type="radio" name="status" value="sold" <%=
+        locals.videoGame.status === 'sold' ? 'checked' : '' %>/>
+        <label for="sold">Sold</label>
+      </div>
+      <label for="imgURL">Image URL</label>
+      <input
+        type="text"
+        name="imgURL"
+        required
+        value="<%= locals.videoGame.imgURL %>"
+      />
+      <button type="submit" class="btn">Update</button>
+      <a href="/inventory/<%= locals.videoGame._id %>" class="btn cancel-btn"
+        >Cancel</a
+      >
+    </form>
+  </div>
+</div>
