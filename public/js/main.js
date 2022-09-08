@@ -8,7 +8,7 @@ const updateStatus = async (e) => {
 
   try {
     console.log(id);
-    const res = await fetch('inventory/updateStatus', {
+    const res = await fetch('/inventory/updateStatus', {
       method: 'put',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
