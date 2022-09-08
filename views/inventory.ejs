@@ -5,7 +5,7 @@
   <div class="video-games">
     <% videoGames.forEach(item => { %>
     <div class="video-game" id="<%= item._id %>">
-      <h2><%= item.title %></h2>
+      <a href="/inventory/<%= item._id %>"><h2><%= item.title %></h2></a>
       <img src="<%= item.imgURL %>" alt="box-art" />
       <p>$<%= item.price %></p>
       <p class="status">

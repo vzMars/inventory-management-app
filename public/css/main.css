@@ -127,6 +127,10 @@ nav {
   justify-content: space-between;
 }
 
+a {
+  text-decoration: none;
+}
+
 .greeting,
 h2 {
   color: #fca90b;
@@ -167,4 +171,18 @@ form p,
 .status {
   font-weight: bold;
   cursor: pointer;
+}
+
+.item-details {
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+.item-details img {
+  width: 70%;
+}
+
+.item-details .btn {
+  align-self: stretch;
 }

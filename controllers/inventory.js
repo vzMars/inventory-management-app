@@ -13,6 +13,16 @@ module.exports = {
       console.log(err);
     }
   },
+  getItem: async (req, res) => {
+    console.log(req.params.id);
+    try {
+      const videoGame = await VideoGame.findById({ _id: req.params.id });
+      res.render('item', {
+        videoGame,
+        title: videoGame.title,
+      });
+    } catch (err) {}
+  },
   addForm: (req, res) => {
     res.render('add', { title: 'Add Video Game' });
   },

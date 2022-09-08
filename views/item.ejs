@@ -1,0 +1,16 @@
+<div class="container">
+  <%- include('partials/_header') %>
+  <div class="inner-container item-details">
+    <h2><%= title %></h2>
+    <img src="<%= videoGame.imgURL %> " alt="box-art" />
+    <p><%= videoGame.description %></p>
+    <p>$<%= videoGame.price %></p>
+    <p class="status">
+      <%= videoGame.status[0].toUpperCase() + videoGame.status.slice(1) %>
+    </p>
+    <a href="/inventory/update/<%= videoGame._id %>" class="btn">Update</a>
+    <a href="/inventory/delete/<%= videoGame._id %>" class="btn cancel-btn"
+      >Delete</a
+    >
+  </div>
+</div>
