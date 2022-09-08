@@ -74,4 +74,19 @@ module.exports = {
       });
     }
   },
+  updateStatus: async (req, res) => {
+    console.log(req.body.id);
+    try {
+      await VideoGame.findOneAndUpdate(
+        { _id: req.body.id },
+        {
+          status: req.body.status,
+        }
+      );
+      console.log('Status Updated');
+      res.json('Status Updated');
+    } catch (err) {
+      console.log(err);
+    }
+  },
 };

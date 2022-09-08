@@ -9,5 +9,6 @@ router.get('/available', ensureAuth, inventoryController.getAvailable);
 router.get('/sold', ensureAuth, inventoryController.getSold);
 router.get('/:id', inventoryController.getItem);
 router.post('/add', ensureAuth, inventoryController.addItem);
+router.put('/updateStatus', ensureAuth, inventoryController.updateStatus);
 
 module.exports = router;

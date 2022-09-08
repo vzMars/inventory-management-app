@@ -173,6 +173,10 @@ form p,
   cursor: pointer;
 }
 
+.status:hover {
+  color: #fca90b;
+}
+
 .item-details {
   justify-content: center;
   align-items: center;
