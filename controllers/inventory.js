@@ -89,4 +89,13 @@ module.exports = {
       console.log(err);
     }
   },
+  deleteItem: async (req, res) => {
+    try {
+      await VideoGame.findOneAndDelete({ _id: req.body.id });
+      console.log('Item deleted');
+      res.json('Item deleted');
+    } catch (err) {
+      console.log(err);
+    }
+  },
 };

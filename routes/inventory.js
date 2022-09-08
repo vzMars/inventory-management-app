@@ -10,5 +10,6 @@ router.get('/sold', ensureAuth, inventoryController.getSold);
 router.get('/:id', inventoryController.getItem);
 router.post('/add', ensureAuth, inventoryController.addItem);
 router.put('/updateStatus', ensureAuth, inventoryController.updateStatus);
+router.delete('/deleteItem', ensureAuth, inventoryController.deleteItem);
 
 module.exports = router;

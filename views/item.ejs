@@ -8,9 +8,9 @@
     <p class="status">
       <%= videoGame.status[0].toUpperCase() + videoGame.status.slice(1) %>
     </p>
-    <a href="/inventory/update/<%= videoGame._id %>" class="btn">Update</a>
-    <a href="/inventory/delete/<%= videoGame._id %>" class="btn cancel-btn"
-      >Delete</a
+    <a href="/inventory/update/<%= videoGame._id %>" class="btn update-btn"
+      >Update</a
     >
+    <button class="btn cancel-btn delete-btn">Delete</button>
   </div>
 </div>
