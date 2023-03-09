@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
-const methodOverride = require('method-override');
 const passport = require('passport');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+const methodOverride = require('method-override');
 const flash = require('express-flash');
 const morgan = require('morgan');
 const expressLayouts = require('express-ejs-layouts');
@@ -32,16 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Method override
-app.use(
-  methodOverride(function (req, res) {
-    if (req.body && typeof req.body === 'object' && '_method' in req.body) {
-      // look in urlencoded POST bodies and delete it
-      let method = req.body._method;
-      delete req.body._method;
-      return method;
-    }
-  })
-);
+app.use(methodOverride('_method'));
 
 // Logging
 app.use(morgan('dev'));
@@ -49,19 +40,19 @@ app.use(morgan('dev'));
 // Sessions
 app.use(
   session({
-    secret: 'keyboard cat',
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
-    store: MongoStore.create({ mongoUrl: process.env.DB_STRING }),
+    store: MongoStore.create({ mongoUrl: process.env.DATABASE_URI }),
   })
 );
-
-// Express flash
-app.use(flash());
 
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
+
+// Express flash
+app.use(flash());
 
 // Routes
 app.use('/', mainRoutes);
@@ -69,5 +60,5 @@ app.use('/inventory', inventoryRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Listening on port ${PORT}`);
 });

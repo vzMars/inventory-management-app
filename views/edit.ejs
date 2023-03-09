@@ -4,7 +4,10 @@
     <% if (locals.errorMessage) { %>
     <div class="alert alert-danger"><%= locals.errorMessage %></div>
     <% } %>
-    <form action="/inventory/<%= locals.videoGame._id %>" method="POST">
+    <form
+      action="/inventory/<%= locals.videoGame._id %>?_method=PUT"
+      method="POST"
+    >
       <input type="hidden" name="_method" value="PUT" />
       <label for="title">Title</label>
       <input

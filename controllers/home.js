@@ -1,5 +1,5 @@
 module.exports = {
   getIndex: (req, res) => {
-    res.render('index', { title: 'Movie Inventory Management' });
+    res.render('index', { title: 'Video Game Inventory Management' });
   },
 };

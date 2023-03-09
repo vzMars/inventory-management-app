@@ -6,7 +6,7 @@ module.exports = {
       const videoGames = await VideoGame.find({ userId: req.user._id });
       res.render('inventory', {
         user: req.user,
-        title: `${req.user.userName}'s Inventory`,
+        title: `${req.user.displayname}'s Inventory`,
         videoGames,
       });
     } catch (err) {
@@ -14,7 +14,6 @@ module.exports = {
     }
   },
   getItem: async (req, res) => {
-    console.log(req.params.id);
     try {
       const videoGame = await VideoGame.findById({ _id: req.params.id });
       res.render('item', {
@@ -44,7 +43,7 @@ module.exports = {
       });
       res.render('inventory', {
         user: req.user,
-        title: `${req.user.userName}'s Available Inventory`,
+        title: `${req.user.displayname}'s Available Inventory`,
         videoGames,
       });
     } catch (err) {
@@ -59,7 +58,7 @@ module.exports = {
       });
       res.render('inventory', {
         user: req.user,
-        title: `${req.user.userName}'s Sold Inventory`,
+        title: `${req.user.displayname}'s Sold Inventory`,
         videoGames,
       });
     } catch (err) {
@@ -76,7 +75,6 @@ module.exports = {
         imgURL: req.body.imgURL,
         userId: req.user._id,
       });
-      console.log('Video Game has been added!');
       res.redirect('/inventory');
     } catch (err) {
       res.render('/inventory/add', {
@@ -85,24 +83,17 @@ module.exports = {
     }
   },
   updateItem: async (req, res) => {
-    console.log(req.params.id);
     try {
-      let videoGame = VideoGame.findById(req.params.id);
-      videoGame = await VideoGame.findOneAndUpdate(
-        { _id: req.params.id },
-        req.body,
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
-      res.redirect('/inventory');
+      await VideoGame.findOneAndUpdate({ _id: req.params.id }, req.body, {
+        new: true,
+        runValidators: true,
+      });
+      res.redirect(`/inventory/${req.params.id}`);
     } catch (err) {
       console.log(err);
     }
   },
   updateStatus: async (req, res) => {
-    console.log(req.body.id);
     try {
       await VideoGame.findOneAndUpdate(
         { _id: req.body.id },
@@ -110,7 +101,6 @@ module.exports = {
           status: req.body.status,
         }
       );
-      console.log('Status Updated');
       res.json('Status Updated');
     } catch (err) {
       console.log(err);
@@ -119,7 +109,6 @@ module.exports = {
   deleteItem: async (req, res) => {
     try {
       await VideoGame.findOneAndDelete({ _id: req.body.id });
-      console.log('Item deleted');
       res.json('Item deleted');
     } catch (err) {
       console.log(err);
