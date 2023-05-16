@@ -14,7 +14,7 @@ This full-stack web application was made using Node.js and Express. EJS was used
 
 ## Optimizations:
 
-I would like to improve the styling of this app by using either Bootstrap or Tailwind CSS. This application only allows users to see their own items and they are unable to view items from other users which is something I would like to improve on. I would also like to add more routes to the application to make it more interactive such as making a comment system or messaging system to allow users to conduct transactions with other users.
+I would like to improve the styling of this app by using either Bootstrap or Tailwind CSS. This application only allows users to see their own items and they are unable to view items from other users which is something I would like to improve on. I would also like to add more routes to the application to make it more interactive such as making a comment system or messaging system to allow users to conduct transactions with other users. The user experience of the app could be improved when a user is trying to log in/sign up. The error messages that flash onto the screen could be done in a way where whatever they have entered before does not get deleted when the app refreshes to show those errors.
 
 ## Lessons Learned:
 
