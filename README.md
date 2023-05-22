@@ -2,7 +2,7 @@
 
 A full-stack web application that allows users to manage their inventory of available and sold items.
 
-**Link to project:** https://inventory-management-app-ux6y.onrender.com
+**Link to project:** https://inventory-management-yj8d.onrender.com
 
 ![alt text](https://i.imgur.com/626VcJZ.png)
 
