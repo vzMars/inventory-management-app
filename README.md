@@ -26,6 +26,6 @@ Take a look at these other projects that I have in my portfolio:
 
 **ItemPickups:** https://github.com/vzMars/item-pickups
 
-**MyBootList API:** https://github.com/vzMars/mybooklist-api
+**MyBookList API:** https://github.com/vzMars/mybooklist-api
 
 **Discord YouTube Bot:** https://github.com/vzMars/discord-youtube-bot
